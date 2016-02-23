@@ -1,0 +1,49 @@
+table.stats {
+  .stats-head td {
+    font-family: "Arial Black";
+    font-size: 1.5em;
+    padding-top: 50px;
+  }
+  .stats-row td {
+    font-family: "Arial Black";
+    font-size: 2em;
+    padding-bottom: 50px;
+  }
+  td {
+    text-align: center;
+    background-color: tomato;
+    color: aqua;
+    border: none;
+  }
+  td.five-em{
+    font-size: 5em;
+    padding-top: 10px;
+  }
+}
+// .cohort-edit-container{
+// display: flex;
+// flex-direction: column;
+// align-items: center;
+// background-color: #eee;
+// padding: 30px;
+//   .edit-codlumn{
+//     flex-grow: 1;
+//     background-color: #ccc;
+//     padding: 10px 20%;
+//     margin: 10px;
+//     max-width: 80%;
+//     .field{
+//       display: flex;
+//       justify-content: space-between;
+//       input{
+//         flex-grow: 1;
+//         padding : 5px;
+//         margin: 5px;
+//       &[type="text"]{
+//         border: none;
+//         flex-grow: 1;
+//       }
+//       }
+//     }
+//   }
+// }

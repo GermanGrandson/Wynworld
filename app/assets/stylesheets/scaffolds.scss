@@ -1,0 +1,148 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  display: flex;
+  height: 45px;
+  border-bottom: solid black 2px;
+  justify-content: flex-start;
+  align-items: stretch;
+  .session {
+    display: flex;
+    align-items: baseline;
+    margin-left: auto;
+    align-items: center;
+    .nav-menu{
+      margin: 0 5px;
+      text-decoration: none;
+
+    }
+    img{
+    margin: 0 10px;
+    border-radius: 50%;
+  }
+  }
+}
+body {
+  background-color: #fff;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+table {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+  th {
+    color: #0ff;
+    background-color: steelblue;
+    border: 1px solid #555;
+    padding: 4px 8px;
+    // font-weight: 100;
+    a, a:visited, {
+      color: #0ff;
+      text-decoration: none;
+    }
+    a:hover{
+      color: coral;
+    }
+  }
+  td {
+    border: 1px solid #555;
+    padding: 4px 8px;
+  }
+  tr:nth-child(even) {
+    background-color: #CEF6F5;
+  }
+
+}
+
+.flat {
+display: flex;
+justify-content: space-between;
+padding: 0 10px;
+h3 {
+  margin: 0;
+}
+}
+
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+
+  &:visited {
+    color: #000;
+  }
+
+  &:hover {
+    color: coral;
+    // color: #04B4AE;
+    // font-weight: bold;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: maroon;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: salmon;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+.float-right{
+margin: 2px 0px;
+min-height: 24px;
+padding: 10px 0;
+}
+.float-split{
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+}

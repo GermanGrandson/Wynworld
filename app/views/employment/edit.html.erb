@@ -1,0 +1,68 @@
+<% provide(:title, "Edit Position") %>
+
+<h1>Edit Position</h1>
+
+<%= form_tag("/employment/update") do %>
+
+
+<%= hidden_field_tag("employment_id", @employment_id) %>
+<div class="employment-edit">
+  <div class="edit-column">
+  <div class="field">
+    <%= label_tag(:employment_to_edit_company_id, "*Company:") %>
+    <%= collection_select(:employment_to_edit, :company_id, @companies, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag(:employment_to_edit_jobtitle, "Job Title") %>
+    <%= text_field(:employment_to_edit, :jobtitle) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag(:employment_to_edit_roletype, "Type of Role (Developer or Non-Technical)") %>
+    <%= text_field(:employment_to_edit, :roletype) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag(:employment_to_edit_rolenature, "What is the nature of this job?") %>
+    <%= select_tag("employment_to_edit[rolenature]", options_for_select(['Full Time Employment', 'Part Time Employment','Internship (Paid)','Internship (Unpaid)','Freelance','Own Venture','Other'], "#{@rolenature}") ) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag(:employment_to_edit_rolesource, "How did you find this job?") %>
+    <%= select_tag("employment_to_edit[rolesource]", options_for_select(['Wyncode Partner', 'Self Sourced','Entrepreneurship','Networking','N/A'], "#{@rolesource}")) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag(:employment_to_edit_salary, "Salary $") %>
+    <%= text_field(:employment_to_edit, :salary) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag(:employment_to_edit_start_date, "Start Date") %>
+    <%= date_field(:employment_to_edit, :start_date) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag(:employment_to_edit_end_date, "End Date") %>
+    <%= date_field(:employment_to_edit, :end_date) %>
+  </div>
+
+  <div class="field">
+    <%= radio_button(:employment_to_edit, :current, true ) %>
+    <%= label_tag(:employment_to_edit_current_true, "Current position") %>
+
+    <%= radio_button(:employment_to_edit, :current, false) %>
+    <%= label_tag(:employment_to_edit_current_false, "Not a current position") %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag nil, class: "menu-btn" %>
+  </div>
+
+<% end %>
+</div>
+</div>
+<div class="float-right">
+<%= link_to "cancel", @user, :class => "menu-btn", :method => :get%><br>
+</div>

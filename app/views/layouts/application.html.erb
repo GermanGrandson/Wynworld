@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= yield :title %>
+    </title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" rel="stylesheet"/>
+    <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-bar">
+        <%= link_to image_tag("WdXNyfs.png", :height => "40"), root_path%>
+        <%= link_to image_tag("WynWorldtxt.png", :height => "40"), root_path %>
+      <!-- <img src="/assets/WynWorldtxt.png"/> -->
+
+        <div class="session">
+            <!-- links -->
+            <%= link_to "Students and Alumni", user_index_path, :class => "nav-menu", :method => :get%>
+            <%= link_to "Cohorts", cohort_index_path, :class => "nav-menu", :method => :get%>
+            <%= link_to "Companies", companies_path, :class => "nav-menu", :method => :get%><br>
+        <% if current_user %>
+          <% if !current_user.admin %>
+              <%= link_to image_tag(current_user.avatar_url(:sm_thumb), height: "36"), user_path(current_user), class: "nav-menu" %>
+              <% else %>
+              <span class="nav-menu">Hi Admin</span>
+          <% end %>
+          <%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete', class: "nav-menu"  %>
+        <% else %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: "nav-menu"%>
+        <%= link_to 'Sign In', new_user_session_path, class: "nav-menu"%>
+        <% end %>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+  </body>
+</html>

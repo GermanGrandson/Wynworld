@@ -1,0 +1,83 @@
+<% provide(:title, "Add A Position") %>
+<h1>Add A Position</h1>
+<div class="employment-edit">
+<div class="edit-column">
+
+<%= form_for(:new_employment, :url => employment_create_path ) do |f| %>
+
+  <% if @new_employment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new_employment.errors.count, "error") %> prohibited this job from being saved:</h2>
+      <ul>
+      <% @new_employment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field(:user_id, :value => @user_id) %>
+
+  <div class="field">
+    <%= f.label(:company_id, "*Company:") %>
+    <%= f.collection_select(:company_id, @companies, :id, :name, { prompt: "Please Select - Or Else Check Below" }) %>
+  </div>
+
+
+  <div class="field">
+    <%= f.radio_button(:company_id, true ) %>
+    <%= f.label(:company_id_true, "Check only if your company is not listed above") %>
+  </div>
+
+
+
+    <div class="field">
+      <%= f.label(:jobtitle, "Job Title:") %>
+      <%= f.text_field(:jobtitle, placeholder: "Job Title") %>
+    </div>
+
+    <div class="field">
+      <%= f.label(:roletype, "Type of Role (Dev or Non-Dev)") %>
+      <%= f.text_field(:roletype) %>
+    </div>
+
+    <div class="field">
+      <%= f.label(:rolenature, "What is the nature of this job?") %>
+      <%= f.select(:rolenature, options_for_select(['Full Time Employment', 'Part Time Employment','Internship (Paid)','Internship (Unpaid)','Freelance','Own Venture','Other']), { prompt: "Please select" }) %>
+  </div>
+
+    <div class="field">
+      <%= f.label(:rolesource, "How did you find this job?") %>
+      <%= f.select(:rolesource, options_for_select(['Wyncode Partner', 'Self Sourced','Entrepreneurship','Networking','N/A']), { prompt: "Please select" }) %>
+  </div>
+
+    <div class="field">
+      <%= f.label(:salary, "Salary:") %>
+      <%= f.text_field(:salary) %>
+    </div>
+
+    <div class="field">
+      <%= f.label(:start_date, "Start Date:") %>
+      <%= f.date_field(:start_date) %>
+    </div>
+
+    <div class="field">
+      <%= f.label(:end_date, "End Date:") %>
+      <%= f.date_field(:end_date) %>
+    </div>
+
+    <div class="field">
+      <%= f.radio_button(:current, true ) %>
+      <%= f.label(:current_true, "Current position") %>
+
+      <%= f.radio_button(:current, false) %>
+      <%= f.label(:current_false, "Not a current position") %>
+    </div>
+  <div class="actions">
+    <%= f.submit nil, class: "menu-btn"%>
+  </div>
+<% end %>
+</div>
+</div>
+<div class="float-right">
+  <%= link_to "cancel", @user, :class => "menu-btn", :method => :get%>
+</div>

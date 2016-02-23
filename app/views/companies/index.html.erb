@@ -1,0 +1,42 @@
+<% provide(:title, 'Hiring Partners') %>
+<p id="notice"><%= notice %></p>
+<h1>Employers</h1>
+<div class="search-menu">
+  <form>
+    <input name='keyword' placeholder='Search by company' type='text' value='<%= params[:keyword] %>' size='50'>
+    <%= submit_tag "Search", :name => nil, :class => "menu-btn" %>
+  </form>
+    <%#= button_to "Home", root_path, :class => "menu-btn", :method => :get%>
+  <%if current_user.admin == true %>
+  <%= button_to "Add New Company", new_company_path, :class => "menu-btn", :method => :get%>
+  <% end %>
+  <%#= button_to "Cohort Employment Stats", cohort_index_path, :class => "menu-btn", :method => :get%>
+  <%#= button_to "All WynAlums", user_index_path, :class => "menu-btn", :method => :get%><br>
+</div>
+<%= will_paginate %>
+<table>
+  <thead>
+    <tr>
+      <th>Company Name</th>
+      <th># Wyncoders <br>Working <br>There</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Website</th>
+      <th>Hp</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= link_to company.name, company %></td>
+        <td><%= link_to company.employments.where(current: true).count, user_index_path(company: company.id) %>
+        <td><%= company.city %></td>
+        <td><%= company.state %></td>
+        <td><%= company.website %></td>
+        <td><%= "yes" if company.hp? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate %>

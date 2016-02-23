@@ -1,0 +1,90 @@
+<%= form_for(@company) do |f| %>
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% @company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="company">
+<div class="com-left">
+  <div class="field">
+    <%= f.label :name, "*Company Name" %><br>
+    <%= f.text_field :name, :size=>50, placeholder: "Company Name" %>
+  </div>
+  <div class="field">
+    <%= f.label :street1 %><br>
+    <%= f.text_field :street1, :size=>50, placeholder: "Street Address" %>
+  </div>
+  <div class="field">
+      <%= f.label :street2 %><br>
+      <%= f.text_field :street2, :size=>50, placeholder: "e.g. Suite Number" %>
+    </div>
+
+    <div class="inline">
+  <div class="field">
+    <%= f.label :city, "*City" %><br>
+    <%= f.text_field :city, :size=>30%>
+  </div>
+  <div class="field">
+    <%= f.label :state, "*State" %><br>
+    <%= f.text_field :state, :size=>6 %>
+  </div>
+  <div class="field">
+    <%= f.label :zip, "*Zip" %><br>
+    <%= f.text_field :zip, :size=>10 %>
+  </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description, :size=>50 %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br>
+    <%= f.text_field :website, :size=>50, placeholder: "www.company.com" %>
+  </div>
+  <div class="field">
+    <%= f.label :hp, "Hiring Partner?" %><br>
+    <%= f.check_box :hp %>
+  </div>
+  <div class="field">
+    <%= f.label :orgtype, "Company Type" %><br>
+    <%= f.text_field :orgtype, :size=>50, placeholder: "i.e. Start-up, Ecommerce, HealthCare etc." %>
+  </div>
+</div>
+
+
+  <div class="com-right">
+  <div class="field">
+    <%= f.label "Contact First Name" %><br>
+    <%= f.text_field :contact_first, :size=>50 %>
+  </div>
+  <div class="field">
+    <%= f.label "Contact Last Name" %><br>
+    <%= f.text_field :contact_last, :size=>50 %>
+  </div>
+  <div class="field">
+    <%= f.label "Contact Number" %><br>
+    <%= f.text_field :contact_phone, :size=>50 %>
+  </div>
+  <div class="field">
+    <%= f.label "Contact Email" %><br>
+    <%= f.text_field :contact_email, :size=>50 %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_area :note, class: "note-input" %>
+  </div>
+  <div class="actions">
+    <%= f.submit nil, class: "menu-btn"%>
+  </div>
+</div>
+</div>
+
+
+<% end %>

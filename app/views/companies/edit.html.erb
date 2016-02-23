@@ -1,0 +1,7 @@
+<% provide(:title, @company.name) %>
+<h1>Update Company</h1>
+<%= render 'form' %>
+
+<div class="float-right">
+  <%= link_to "cancel", @company, :class => "menu-btn", :method => :get%>
+</div>

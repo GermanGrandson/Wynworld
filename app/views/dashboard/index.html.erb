@@ -1,0 +1,85 @@
+<% provide(:title, 'WynWorld') %>
+
+<h1>Welcome to Wynworld,
+  <%= current_user.fname %>!
+</h1>
+
+<!--  map (initial) -->
+<div id="map"></div>
+<!-- end map -->
+
+<!-- search form -->
+<div class="float-split">
+  <a class="soflo"><i class="fa fa-search-plus"></i> SoFlo</a>
+  <a class="us"><i class="fa fa-search-plus"></i> US</a>
+<%= render partial: "search/index" %>
+</div>
+<table  id="search_results"></table>
+
+<% if !current_user.admin %>
+<h2>My Cohort</h2>
+<table class="dash-cohort-table">
+  <thead>
+    <th></th>
+    <th>Name</th>
+    <th>Currently Working At</th>
+  </thead>
+  <tbody>
+    <% @cohort_users.each do |user| %>
+      <tr><td><%= image_tag(user.avatar_url(:sm_thumb))%></td>
+      <td><%= link_to "#{user.fname} #{user.lname}", user_path(user) %></td>
+      <td>
+        <% unless user.employments.empty? %>
+          <% user.employments.where("current = true").each do |e| %>
+            <%= e.company.name %><br>
+          <% end %>
+        <% end %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+
+<br>
+
+
+<script type="text/javascript">
+  $(function () {
+    var map = L.map('map').setView([38.7006009, -96.5933281], 4);
+    L.tileLayer('//server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {minZoom: 4}).addTo(map);
+          <% @single_companies_full_array.each do |pin| %>
+              <% if ( pin[0] && pin[1] && pin[2] && pin[3] )  %>
+              var markerInfo = "<%= "#{pin[0]}: #{pin[1]}" %>";
+              L.marker([<%= pin[2] %>, <%= pin[3] %>]).addTo(map)
+              .bindPopup(markerInfo);
+              <% end %>
+          <% end %>
+
+          <% @multiple_companies_full_array.each do |pin| %>
+            <% if ( pin[0] && pin[1] && pin[2] && pin[3] )  %>
+              var markerInfo = "<%= "#{pin[0]}: #{pin[1]}" %>";
+              L.marker([<%= pin[2] %>, <%= pin[3] %>]).addTo(map)
+              .bindPopup(markerInfo);
+            <% end %>
+          <% end %>
+
+          $(document).ready(function(){
+              $('.soflo').click(function(){
+                  map.setView([25.9267017, -80.2952457], 10);
+                  L.tileLayer('//server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {minZoom: 4}).addTo(map);
+              });
+          });
+          $(document).ready(function(){
+              $('.us').click(function(){
+                  map.setView([38.7006009, -96.5933281], 4);
+                  L.tileLayer('//server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {minZoom: 4}).addTo(map);
+              });
+          });
+        });
+</script>
+
+
+
+
+<script src="Leaflet.Sleep.js"></script>

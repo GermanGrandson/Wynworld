@@ -1,0 +1,101 @@
+<% provide(:title, @cohort.name) %>
+
+<%# Do Some Calculations Here
+They will be used in the page
+
+Although it isn't DRY, it's simler to
+call the 'each' method twice on the cohort
+to 1) calculate the needed stats and 2)generate
+the needed view  %>
+
+<% total_students_working = [] %>
+<% students_in_cohort = @cohort.users.count %>
+<% @cohort.users.each do |user| %>
+<%#= user.fname  # Debug Text %>
+<% if user.employments.all.empty? %>
+<%# Do Nothing.%>
+<%#= " - has no employment records" # Debug Text %>
+<%#= total_students_working # Debug Text %>
+<!-- <br> -->
+<% else %>
+<%#= " - has records" # Debug Text %>
+<% user.employments.all.each do |e| %>
+<%#= e.company.name %>
+<% if e.current == true %>
+<%#= " (current position)" # Debug Text %>
+<% total_students_working << e.user.fname %>
+<% break %>
+<% end %>
+<% end %>
+<%#= total_students_working # Debug Text %>
+<!-- <br> -->
+<% end %>
+<% end %>
+<%#= "students in cohort: #{students_in_cohort}" %>
+<%#= "students working: #{total_students_working.count}" %>
+<!-- br -->
+<% num = total_students_working.count.to_f / students_in_cohort %>
+<% percentage_employed = number_to_percentage(num * 100, precision: 0) %>
+
+<!-- <ul>
+<%# @cohort.users.each do |student| %>
+
+  <li><%#= link_to "#{student.fname + " " + student.lname}", user_path(student.id) %></li>
+<%# end %>
+</ul> -->
+
+<%# PAGE VIEW BEGINS HERE ------  %>
+<h1>
+  <%= "#{@cohort.name} Cohort" %></h1>
+<div class="float-right">
+  <%if current_user.admin?%>
+  <%= link_to "Edit this Cohort", edit_cohort_path(@cohort), :class => "menu-btn", :method => :get%>
+  <% end %>
+  <% if current_user.admin %>
+  <%= link_to 'Delete Cohort', cohort_path(@cohort), :class => "menu-btn", method: :delete, data: { confirm: 'Are you sure you want to delete this position?' }  %>
+  <%end%>
+</div>
+<br>
+<table class="stats">
+  <tr class='stats-head'>
+    <td>Location</td>
+    <td>Graduation Date</td>
+    <td>Students in Cohort</td>
+    <td>Students Employed</td>
+    <td>Percentage Employed</td>
+  </tr>  <tr class="stats-row">
+      <td>
+        <%= @cohort.location %></td>
+      <td>
+        <%= @cohort.graddate %></td>
+      <td class="five-em">
+        <%= students_in_cohort %>
+      </td>
+      <td class="five-em">
+        <%= total_students_working.count %></td>
+      <td class="five-em">
+        <%= percentage_employed %></td>
+    </tr>
+</table>
+
+<table class="dash-cohort-table">
+  <thead>
+    <th></th>
+    <th>Name</th>
+    <th>Currently Working At</th>
+  </thead>
+  <tbody>
+    <% @cohort.users.each do |user| %>
+    <tr>
+      <td><%= image_tag(user.avatar_url(:sm_thumb))%></td>
+      <td><%= link_to "#{user.fname} #{user.lname}", user_path(user) %></td>
+      <td>
+        <% unless user.employments.empty? %>
+        <% user.employments.where("current = true").each do |e| %>
+        <%= e.company.name %><br>
+        <% end %>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

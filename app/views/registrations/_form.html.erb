@@ -1,0 +1,91 @@
+
+<%= form_for @user, html: { multipart: true } do |f| %>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error") %>
+    prohibited this user from being saved:</h2>
+
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="edit-container">
+  <div class="edit-column">
+    <div class="field">
+      <%= f.label :fname, "* First Name" %><br>
+      <%= f.text_field :fname, placeholder: "* First Name"%>
+    </div>
+    <div class="field">
+      <%= f.label :lname, "* Last Name" %><br>
+      <%= f.text_field :lname, placeholder: "* Last Name" %>
+    </div>
+    <div class="field">
+      <%= f.label :email, "* Email" %><br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :location, "* Where do you live?" %><br>
+      <%= f.text_field :location, placeholder: "* e.g. Miami, FL" %>
+    </div>
+    <div class="field">
+      <%= f.label :password%><br>
+      <%= f.password_field :password, autocomplete:'off', placeholder: "*************" %>
+    </div>
+  </div>
+    <div class="edit-column">
+      <div class="field">
+        <%= f.label :github, "Github" %><br>
+        <%= f.text_field :github, placeholder: "github.com/username" %>
+      </div>
+      <div class="field">
+        <%= f.label :linkedin, "Linkedin" %><br>
+        <%= f.text_field :linkedin, placeholder: "Linkedin Profile" %>
+      </div>
+      <div class="field">
+        <%= f.label :portfolio, "Portfolio Site" %><br>
+        <%= f.text_field :portfolio, placeholder: "www.portfolio.co" %>
+      </div>
+      <div class="field">
+        <%= f.label :slack, "Slack Username" %><br>
+        <%= f.text_field :slack, placeholder: "@slackbot" %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation%><br>
+        <%= f.password_field :password_confirmation, autocomplete:'off', placeholder: "*************" %>
+      </div>
+    </div>
+    <div class="edit-column">
+      <div class="field">
+        <%= f.label :seeking, "Please tell us your current status" %><br>
+        <%= f.radio_button :seeking, true %>
+        <%= f.label :seeking, "Seeking Employment", :value => "true"  %><br>
+        <%= f.radio_button :seeking, false %>
+        <%= f.label :seeking, "Not Seeking Employment", :value => "false"  %>
+      </div>
+
+      <div class="field">
+        <%= f.label :reason, "Reason for Not Seeking" %><br>
+        <%= f.text_field :reason, placeholder: "e.g. Sabbatical, Employed, Continuing Education", :class =>"reason" %>
+      </div>
+      <div class="field">
+        <label>Profile Picture</label><br>
+        <%= image_tag(@user.avatar_url(:thumb), :width => '50') if @user.avatar? %>
+        <%= f.file_field :avatar, class: "menu-btn" %><br>
+        <% f.hidden_field :avatar_cache %>
+        <label>
+          <%= f.check_box :remove_avatar%>
+          Remove pic
+        </label><p>
+        <div class="actions">
+          <%= f.submit nil, class: "menu-btn" %>
+        </div>
+        <% end %>
+        <%# if current_user.admin %>
+          <%#= link_to 'Delete This Profile', @user, method: :delete, class: "menu-btn", data: { confirm: 'Are you sure you want to delete this profile?' } %>
+        <%# end %>
+    </div>
+  </div>
+</div>

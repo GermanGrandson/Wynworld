@@ -1,0 +1,8 @@
+<% provide(:title, @user.name) %>
+<h1> Edit Profile </h1>
+
+<%= render 'form' %>
+<br>
+<div class="float-right">
+<%= link_to "cancel", @user, :class => "menu-btn", :method => :get%>
+</div>

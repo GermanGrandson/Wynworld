@@ -1,0 +1,64 @@
+<% provide(:title, 'All Cohorts') %>
+<h1>All Cohorts </h1>
+
+<div class="float-right">
+
+  <%if current_user.admin? %>
+  <%= link_to "Add New Cohort", new_cohort_path, :class => "menu-btn", :method => :get%>
+  <%end%>
+</div>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+        <th>Current Employment Rate</th>
+        <th>90 Day Placement Rate</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cohorts.each do |cohort| %>
+          <tr>
+            <td><%= link_to cohort.name, cohort %></td>
+            <%# Calculation for Current Employment rate %>
+            <td><% if cohort.users.count == 0 %>
+                <%# No users in cohort, don't divide by 0 %>
+                  <%= "Database empty" %>
+                <% else %>
+                  <% students_in_cohort = cohort.users.count %>
+                  <% total_students_working = [] %>
+                  <% cohort.users.each do |user| %>
+                  <%#= user.fname  # Debug Text %>
+                  <% if user.employments.all.empty? %>
+                      <%# Do Nothing.%>
+                      <%#= " - has no employment records" # Debug Text %>
+                      <%#= total_students_working # Debug Text %>
+                      <!-- <br> -->
+                    <% else %>
+                      <%#= " - has records" # Debug Text %>
+                      <% user.employments.all.each do |e| %>
+                         <%#= e.company.name %>
+                           <% if e.current == true %>
+                             <%#= " (current position)" # Debug Text %>
+                             <% total_students_working << e.user.fname %>
+                             <% break %>
+                           <% end %>
+                        <% end %>
+                        <%#= total_students_working # Debug Text %>
+                      <!-- <br> -->
+                    <% end %>
+                  <% end %>
+                  <%#= "students in cohort: #{students_in_cohort}" %>
+                  <%#= "students working: #{total_students_working.count}" %>
+                  <!-- br -->
+                  <% num = total_students_working.count.to_f / students_in_cohort %>
+                  <%= number_to_percentage(num * 100, precision: 0) %>
+                <% end %>
+            </td>
+            <td><%= "tbd" %></td>
+
+          </tr>
+    <% end %>
+  </tbody>
+</table>

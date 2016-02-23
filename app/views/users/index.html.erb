@@ -1,0 +1,57 @@
+<% provide(:title, 'All WynAlums') %>
+<h1>All WynAlums
+  <% if !params[:company].nil? %>
+  <%= "at" %>
+  <%= Company.find(params[:company]).name %>
+  <% end %>
+
+</h1>
+
+<% if flash[:alert] %>
+    <p id="notice"><%= flash[:alert] %></p>
+<% end %>
+
+<div class="search-menu">
+  <form>
+    <input name='keyword' placeholder='Search by Student' type='text' value='<%= params[:keyword] %>' size='50'>
+    <%= submit_tag "Search", :name => nil, :class => "menu-btn" %>
+  </form>
+  <%if current_user.admin == true %>
+  <%= link_to "Add New User", new_user_registration_path, :class => "menu-btn", :method => :get%>
+  <% end %>
+</div>
+<% if params[:company].nil? %>
+<%= will_paginate %>
+<% end %>
+<table class="user-index-table">
+  <thead>
+    <th></th>
+    <th><%= link_to "First Name ▲", user_index_path(sort_by: :fname) %><%= link_to " Last Name ▲", user_index_path(sort_by: :lname) %></th>
+    <th><%= link_to "Location ▲", user_index_path(sort_by: :location) %></th>
+    <th>Email</th>
+    <th>Cohort</th>
+    <th><%= "Currently Working At" %></th>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= image_tag(user.avatar_url(:sm_thumb), :width => '36')%></td>
+      <td><%= link_to "#{user.fname} #{user.lname}", user_path(user) %></td>
+      <td><%= user.location %></td>
+      <td><%= user.email %></td>
+      <td><%= user.cohort.name %></td>
+      <td>
+        <% unless user.employments.empty? %>
+        <% user.employments.where("current = true").each do |e| %>
+        <%= e.company.name %><br>
+        <% end %>
+        <% end %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if params[:company].nil? %>
+<%= will_paginate %>
+<% end %>

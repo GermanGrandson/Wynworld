@@ -1,0 +1,41 @@
+.company, .employment-edit, .cohort-edit-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #ccc;
+  padding: 20px 0;
+
+  .com-left, .edit-column {
+    margin: 10px 10px;
+    padding: 20px;
+    background-color: #aaa;
+    width:40%;
+    max-width:500px;
+     .inline {
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+  .com-right {
+    margin: 10px 10px;
+    padding: 20px;
+    background-color: #aaa;
+    width:40%;
+
+    max-width:500px;
+    .note-input {
+      min-height: 20vh;
+      resize: none;
+      width: 92%;
+    }
+  }
+  p {
+    background-color: #fff;
+    padding: 10px;
+    span {
+      background-color: #aaa;
+      border: 11px solid #aaa;
+      margin: 5px 10px;
+    }
+  }
+}

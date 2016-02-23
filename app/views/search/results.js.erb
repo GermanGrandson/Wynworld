@@ -1,0 +1,55 @@
+$(function() {
+  $('#h2').html("<br>");
+  $('#search_results').html("");
+
+  h2 = $('<h2>Search Results:</h2>');
+  h_noresults = $('<h2>Search Results: No Students Found</h2>');
+  tbody = $('<tbody></tbody>'); // Creat Body Element
+  thead = $('<thead><th></th><th>Name</th><th>Currently working at</th></thead>'); // Create Header Eleemtn
+
+// Build Table --->
+// Show "No Result if found nothing"
+<% if @user.nil? %>
+  $('#h2').append(h_noresults);
+<% else %>
+  <% @user.each do |user| %>
+  //Create Element for each td, image,and anchor
+  var tdImage = document.createElement("td"),
+      imgImage = document.createElement('img'),
+      tdName = document.createElement("td"),
+      aName = document.createElement('a'),
+      // tdCohort = document.createElement("td"),
+      tdEmploy = document.createElement("td"),
+      // A Memory holding place for all the contents. Using Fragment will reduce server requests for each element and increase performance.
+      fragment = document.createDocumentFragment(),
+      row = $('<tr></tr>');
+      //Create contents inside td
+   aName.innerHTML = '<%= "#{user.fname} ""#{user.lname}" %>';
+   aName.setAttribute("href", "/users/<%= user.id %>");
+   tdName.appendChild(aName);
+   imgImage.setAttribute("src", "<%= user.avatar_url(:sm_thumb)%>");
+   tdImage.appendChild(imgImage);
+  //  tdCohort.innerHTML = '<%# user.cohort.name%>';
+  //Create Employment content
+        <% unless user.employments.empty? %>
+          <% in_text = "" %>
+          <% user.employments.where("current = true").each do |e| %>
+          <% in_text << "#{e.company.name}" << ", " %>
+          <%  %>
+          tdEmploy.innerHTML = '<%= in_text[0...-2] %>';
+          <%end %>
+        <%end %>
+        //building table by addming into Fragment and append to bady
+      fragment.appendChild(tdImage);
+      fragment.appendChild(tdName);
+      // fragment.appendChild(tdCohort);
+      fragment.appendChild(tdEmploy);
+      row.append(fragment);
+      tbody.append(row);
+  <% end %>
+  $('#h2').append(h2);
+  $('#search_results').append(thead);
+  $('#search_results').append(tbody);
+<% end %>
+
+});

@@ -1,0 +1,8 @@
+
+<!-- remote: true, -->
+
+
+<%= form_tag results_path, remote:true, :method => 'get', :class => "search-menu", autocomplete: "off" do %>
+    <%= text_field_tag :q, nil, placeholder: 'Search by Student Name', size: '50'%>
+    <%= submit_tag "Search", :name => nil, :class => "menu-btn" %>
+<% end %>

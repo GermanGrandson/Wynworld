@@ -1,0 +1,127 @@
+<% full_name = "#{@user.fname} #{@user.lname}" %>
+<% provide(:title, full_name) %>
+<h1>
+  <%= "#{@user.fname} #{@user.lname}" %>
+</h1>
+
+<% if flash[:alert] %>
+  <p id="notice"><%= flash[:alert] %></p>
+<% end %>
+<div class="profile">
+  <!-- Basic Info: Start -->
+  <div class="profile-basic">
+    <h2>Contact Info</h2>
+  <p>Name:
+    <%= @user.fname %>
+    <%= @user.lname %></p>
+  <p>Email:
+    <%= mail_to @user.email %></p>
+  <p>Location:
+    <%= @user.location %></p>
+  <p>Status:
+    <% if @user.status["seeking"] == "true" %>
+    <%= "Looking" %>
+    <% else %>
+    <%= "Not Looking" %>
+    (<%= @user.status["reason"] %>)
+    <% end %></p>
+    </div>
+    <!-- Social Info: End -->
+    <div class="profile-social">
+      <h2>Social links</h2>
+    <p>Github:
+      <%if !@user.github.nil? %>
+        <%= link_to @user.github, @user.github  %></p>
+      <% end %>
+    <p>LinkedIn:
+      <%if !@user.linkedin.nil? %>
+        <%= link_to @user.linkedin, @user.linkedin  %></p>
+      <% end %>
+    <p>Portfolio Site:
+      <% if !@user.portfolio.nil? %>
+        <%= link_to @user.portfolio, @user.portfolio %></p>
+      <% end %>
+
+
+    <p>Slack:
+      <%= @user.social_links["slack"] %></p>
+    </div>
+    <div class="profile-con">
+      <%= image_tag @user.avatar_url(:profile_pic), class: "img-cir" %>
+      <% if (current_user.admin || @user == current_user)  %>
+      <%= link_to "Edit Profile", edit_user_path(@user), :class => "menu-btn", :method => :get%>
+      <% end %>
+      <% if current_user.admin %>
+      <%= link_to 'Delete Profile', @user, class: "menu-btn", method: :delete, data: { confirm: 'Are you sure you want to delete this profile?' } %>
+      <% end %>
+  </div>
+</div>
+
+<!-- Basic Info: End -->
+<br>
+<div class="flat">
+
+<% if current_user.admin || current_user == User.find(params[:id]) %>
+<h3>Work History - <%= link_to "Add A Position", employment_new_path(@user) %></span></h3>
+<% end %>
+</div>
+<br>
+<div class="profile-hist">
+<table class="profile-hist-table">
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Job Title</th>
+      <th>Type of Role</th>
+      <th>Nature of Role</th>
+      <th>Type of Organization</th>
+      <th>Source of Offer</th>
+      <% if current_user.admin || current_user == User.find(params[:id]) %>
+        <th>Salary</th>
+      <% end %>
+      <th>Begin</th>
+      <th>End</th>
+      <th>Current Job</th>
+      <% if current_user.admin || current_user == User.find(params[:id]) %>
+        <th>Edit</th>
+      <% end %>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @employments.each do |employment| %>
+
+
+    <tr>
+      <td><%= link_to employment.company.name, company_path(employment.company) %></td>
+      <td><%= employment.jobtitle %></td>
+      <td><%= employment.roletype %></td>
+      <td><%= employment.rolenature %></td>
+      <td><%= employment.company.orgtype %></td>
+      <td><%= employment.rolesource %></td>
+      <% if current_user.admin || current_user == User.find(params[:id]) %>
+        <td><%= number_to_currency(employment.salary, precision: 0) %></td>
+      <% end %>
+      <td><%= if employment.start_date
+            employment.start_date.to_s(:long)
+          end %></td>
+      <td><%= if employment.end_date
+            employment.end_date.to_s(:long)
+          end %></td>
+      <td><% if employment.current %>
+          <%= "Yes" %>
+        <% end %></td>
+
+      <% if current_user.admin || current_user == User.find(params[:id]) %>
+          <td>
+          <%= link_to 'Edit', employment_edit_path(employment) %>/
+          <%= link_to 'Delete', employment_destroy_path(employment), method: :delete, data: { confirm: 'Are you sure you want to delete this position?' }  %>
+
+          </td>
+      <% end %>
+
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<!-- <%# image_tag @user.avatar_url( or avatar.url) if @user.avatar?%> -->

@@ -1,0 +1,61 @@
+// css codes for devise pages.
+.welcome-body{
+    // background: image-url('/assets/ww-globe.jpg') no-repeat center center fixed;
+    background: asset_url('ww-globe.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+}
+.welcome-container {
+  padding: 0;
+  margin: 0;
+  height: 50vh;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-between;;
+  flex-flow: column nowrap;;
+  align-items: center;
+
+  .hello{
+    // display: flex;
+    text-align: center;
+  }
+
+  .sign-in-box{
+    display: flex;
+  }
+
+  .shared-links{
+    justify-content: space-between;
+    width: 20vw;
+    display: flex;
+    flex-wrap: wrap;
+    order: -1;
+    align-self: flex-end;
+    a {
+      color: #fff;
+      text-decoration: none;
+
+      &:visited {
+          color: #aaa;
+        }
+
+        &:hover {
+          color: #fff;
+        }
+      }
+  }
+}

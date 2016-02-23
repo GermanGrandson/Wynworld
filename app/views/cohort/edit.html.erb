@@ -1,0 +1,8 @@
+<% provide(:title, @cohort.name) %>
+<h1><%= @cohort.name %></h1>
+
+<%= render 'editcohort' %>
+
+<div class="float-right">
+  <%= link_to "cancel", @cohort, :class => "menu-btn", :method => :get%>
+</div>

@@ -1,0 +1,9 @@
+<% provide(:title, "Add New Company") %>
+
+<h1>Add New Company</h1>
+
+<%= render 'form' %>
+
+<div class="float-right">
+  <%= link_to "cancel", companies_path, :class => "menu-btn", :method => :get%>
+</div>

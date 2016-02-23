@@ -1,0 +1,56 @@
+.menu-btn, .soflo, .us{
+  color: #0ff;
+  background-color: #555;
+  padding: 8px 15px;
+  font-weight: 100;
+  text-decoration: none;
+  margin: 2px;
+  width: none;
+  &:hover{
+    font-weight: normal;
+    background-color: #333;
+  }
+  &:visited, {
+    color: #0ff;
+  }
+}
+.search-menu{
+  display: flex;
+  justify-content: flex-end;;
+  outline: none;
+  margin-top: 5px;
+  input#q{
+  margin-top: 2px;
+  height: 18px;
+  }
+  input{
+    font-family: arial;
+    font-size: 1.2em;
+    padding: 8px 15px;
+    border: 2px solid #555;
+    &:focus{
+      outline: aqua;
+    }
+    &[type="submit"]:hover{
+    background-color: #333;
+    }
+  }
+}
+
+#search_results{
+  img {
+    width: 36px;
+  }
+}
+.dash-cohort-table {
+  img {
+    width: 36px;
+  }
+}
+.soflo, .us{
+  height: 18px;
+  padding: 2px 10px;
+}
+.us{
+  margin-right: auto;
+}

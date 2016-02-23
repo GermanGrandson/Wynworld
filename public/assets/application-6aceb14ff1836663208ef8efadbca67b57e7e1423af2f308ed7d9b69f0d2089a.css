@@ -1,0 +1,618 @@
+/* line 2, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/cohort.scss */
+table.stats .stats-head td {
+  font-family: "Arial Black";
+  font-size: 1.5em;
+  padding-top: 50px;
+}
+/* line 7, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/cohort.scss */
+table.stats .stats-row td {
+  font-family: "Arial Black";
+  font-size: 2em;
+  padding-bottom: 50px;
+}
+/* line 12, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/cohort.scss */
+table.stats td {
+  text-align: center;
+  background-color: tomato;
+  color: aqua;
+  border: none;
+}
+/* line 18, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/cohort.scss */
+table.stats td.five-em {
+  font-size: 5em;
+  padding-top: 10px;
+}
+/* line 1, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/companies.scss */
+.company, .employment-edit, .cohort-edit-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  background-color: #ccc;
+  padding: 20px 0;
+}
+/* line 8, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/companies.scss */
+.company .com-left, .company .edit-column, .employment-edit .com-left, .employment-edit .edit-column, .cohort-edit-container .com-left, .cohort-edit-container .edit-column {
+  margin: 10px 10px;
+  padding: 20px;
+  background-color: #aaa;
+  width: 40%;
+  max-width: 500px;
+}
+/* line 14, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/companies.scss */
+.company .com-left .inline, .company .edit-column .inline, .employment-edit .com-left .inline, .employment-edit .edit-column .inline, .cohort-edit-container .com-left .inline, .cohort-edit-container .edit-column .inline {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+/* line 19, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/companies.scss */
+.company .com-right, .employment-edit .com-right, .cohort-edit-container .com-right {
+  margin: 10px 10px;
+  padding: 20px;
+  background-color: #aaa;
+  width: 40%;
+  max-width: 500px;
+}
+/* line 26, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/companies.scss */
+.company .com-right .note-input, .employment-edit .com-right .note-input, .cohort-edit-container .com-right .note-input {
+  min-height: 20vh;
+  resize: none;
+  width: 92%;
+}
+/* line 32, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/companies.scss */
+.company p, .employment-edit p, .cohort-edit-container p {
+  background-color: #fff;
+  padding: 10px;
+}
+/* line 35, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/companies.scss */
+.company p span, .employment-edit p span, .cohort-edit-container p span {
+  background-color: #aaa;
+  border: 11px solid #aaa;
+  margin: 5px 10px;
+}
+/* line 1, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/dashboard.scss */
+.menu-btn, .soflo, .us {
+  color: #0ff;
+  background-color: #555;
+  padding: 8px 15px;
+  font-weight: 100;
+  text-decoration: none;
+  margin: 2px;
+  width: none;
+}
+/* line 9, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/dashboard.scss */
+.menu-btn:hover, .soflo:hover, .us:hover {
+  font-weight: normal;
+  background-color: #333;
+}
+/* line 13, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/dashboard.scss */
+.menu-btn:visited, .soflo:visited, .us:visited {
+  color: #0ff;
+}
+
+/* line 17, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/dashboard.scss */
+.search-menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  outline: none;
+  margin-top: 5px;
+}
+/* line 22, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/dashboard.scss */
+.search-menu input#q {
+  margin-top: 2px;
+  height: 18px;
+}
+/* line 26, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/dashboard.scss */
+.search-menu input {
+  font-family: arial;
+  font-size: 1.2em;
+  padding: 8px 15px;
+  border: 2px solid #555;
+}
+/* line 31, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/dashboard.scss */
+.search-menu input:focus {
+  outline: aqua;
+}
+/* line 34, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/dashboard.scss */
+.search-menu input[type="submit"]:hover {
+  background-color: #333;
+}
+
+/* line 41, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/dashboard.scss */
+#search_results img {
+  width: 36px;
+}
+
+/* line 46, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/dashboard.scss */
+.dash-cohort-table img {
+  width: 36px;
+}
+
+/* line 50, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/dashboard.scss */
+.soflo, .us {
+  height: 18px;
+  padding: 2px 10px;
+}
+
+/* line 54, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/dashboard.scss */
+.us {
+  margin-right: auto;
+}
+/* line 2, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+.container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/* line 7, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+.top-bar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 45px;
+  border-bottom: solid black 2px;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+/* line 13, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+.top-bar .session {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin-left: auto;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/* line 18, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+.top-bar .session .nav-menu {
+  margin: 0 5px;
+  text-decoration: none;
+}
+/* line 23, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+.top-bar .session img {
+  margin: 0 10px;
+  border-radius: 50%;
+}
+
+/* line 29, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 36, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 41, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+table {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+}
+/* line 46, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+table th {
+  color: #0ff;
+  background-color: steelblue;
+  border: 1px solid #555;
+  padding: 4px 8px;
+  font-weight: 100;
+}
+/* line 52, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+table th a, table th a:visited {
+  color: #0ff;
+  text-decoration: none;
+}
+/* line 57, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+table td {
+  border: 1px solid #555;
+  padding: 4px 8px;
+}
+/* line 61, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+table tr:nth-child(even) {
+  background-color: #CEF6F5;
+}
+
+/* line 67, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+.flat {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 10px;
+}
+/* line 71, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+.flat h3 {
+  margin: 0;
+}
+
+/* line 77, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 83, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 86, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #000;
+}
+/* line 90, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #04B4AE;
+  font-weight: bold;
+}
+
+/* line 97, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 102, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: maroon;
+}
+
+/* line 106, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: salmon;
+  display: table;
+}
+
+/* line 112, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 119, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 130, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 135, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+.float-right {
+  margin: 2px 0px;
+  min-height: 24px;
+  padding: 10px 0;
+}
+
+/* line 140, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/scaffolds.scss */
+.float-split {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+/* line 1, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.profile {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  background-color: #ccc;
+  padding: 20px 0;
+}
+/* line 7, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.profile .profile-basic {
+  margin: 10px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #aaa;
+  padding: 10px 30px;
+}
+/* line 15, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.profile p {
+  background-color: #fff;
+  padding: 10px;
+}
+/* line 20, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.profile h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 20px;
+  margin-bottom: 0;
+  color: #0ff;
+}
+/* line 28, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.profile .profile-social {
+  margin: 10px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-size: 2em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #aaa;
+  padding: 10px 30px;
+}
+/* line 37, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.profile .profile-con {
+  margin: 10px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #aaa;
+  padding: 10px 30px;
+}
+/* line 46, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.profile .profile-con .img-cir {
+  border-radius: 50%;
+  width: 250px;
+}
+
+/* line 52, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.profile-hist {
+  background-color: #ddd;
+  padding: 20px 5px;
+}
+
+/* line 56, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.edit-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #eee;
+  padding: 30px;
+}
+/* line 61, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.edit-container .edit-column {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: #ccc;
+  padding: 10px;
+  margin: 10px;
+}
+/* line 67, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.edit-container .reason {
+  width: 90%;
+}
+/* line 70, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.edit-container input {
+  padding: 10px;
+}
+/* line 73, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.edit-container input[type="text"] {
+  border: none;
+}
+
+/* line 79, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.pagination ul {
+  float: right;
+  margin: 10px 0 0;
+  padding: 5px 10px;
+}
+/* line 83, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/users.scss */
+.pagination ul li {
+  display: inline;
+}
+/* line 2, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/welcome.scss */
+.welcome-body {
+  background: url(/assets/ww-globe-a6d466eac195fc3a507a81b5952874077b889b4df412ec39a9dc7fd2d669e2e7.jpg) no-repeat center center fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 15, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/welcome.scss */
+.welcome-container {
+  padding: 0;
+  margin: 0;
+  height: 50vh;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/* line 32, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/welcome.scss */
+.welcome-container .hello {
+  text-align: center;
+}
+/* line 37, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/welcome.scss */
+.welcome-container .sign-in-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+/* line 41, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/welcome.scss */
+.welcome-container .shared-links {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 20vw;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-ordinal-group: 0;
+  -webkit-order: -1;
+      -ms-flex-order: -1;
+          order: -1;
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
+}
+/* line 48, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/welcome.scss */
+.welcome-container .shared-links a {
+  color: #fff;
+  text-decoration: none;
+}
+/* line 52, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/welcome.scss */
+.welcome-container .shared-links a:visited {
+  color: #aaa;
+}
+/* line 56, /Users/wuji/Desktop/projects/wynworld/repo_for_wynworld/app/assets/stylesheets/welcome.scss */
+.welcome-container .shared-links a:hover {
+  color: #fff;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+
+#map { height: 380px;}
+       /*width: 80%;
+        margin-left: 10%;}*/
+
+/*@import "bootstrap-sprockets"
+@import "bootstrap"*/

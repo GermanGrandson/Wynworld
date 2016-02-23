@@ -1,0 +1,32 @@
+<div class="cohort-edit-container">
+  <div class="edit-column">
+    <%= form_for @cohort, url:cohort_index_path, html: {method: :post} do |f| %>
+    <% if @cohort.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cohort.errors.count, "error") %>
+        prohibited this cohort from being saved:</h2>
+      <ul>
+        <% @cohort.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :location %><br>
+      <%= f.select(:location, options_for_select(['Fort Lauderdale', 'Miami', 'Miami Beach']), { prompt: "Please select" }) %>
+    </div>
+    <div class="field">
+      <%= f.label :graddate %><br>
+      <%= f.date_field :graddate %>
+    </div>
+    <div class="actions">
+      <%= f.submit nil, class: "menu-btn"%>
+    </div>
+    <% end %>
+  </div>
+</div>
