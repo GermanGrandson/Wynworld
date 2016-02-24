@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
 
   #users
-  get 'user/index' => 'users#index'
+  get 'user/index' => 'users#index', as:'users'
   #get 'user/mapper' => 'users#mapper'
 
   get '/users/:id', to: 'users#show', as: 'user'
