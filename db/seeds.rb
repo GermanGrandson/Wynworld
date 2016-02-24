@@ -9,26 +9,26 @@
 # User.destroy_all
 # Cohort.destroy_all
 #
-# User.create!(
-# fname: 'German',
-# lname: 'Nieto',
-# email: 'german@example.com',
-# location: "Fort Lauderdale",
-# password: 'password',
-# password_confirmation: 'password',
-# admin: true,
-# cohort_id: nil
-# )
-# Cohort.create!(
-# name: 'MIA 1',
-# location: 'Miami',
-# graddate: '3/1/2016'
-# )
-# Cohort.create!(
-# name: 'FLL 1',
-# location: 'Fort Lauderdale',
-# graddate: '4/1/2016'
-# )
+Cohort.create!(
+name: 'MIA 1',
+location: 'Miami',
+graddate: '3/1/2016'
+)
+Cohort.create!(
+name: 'FLL 1',
+location: 'Fort Lauderdale',
+graddate: '4/1/2016'
+)
+User.create!(
+fname: 'German',
+lname: 'Nieto',
+email: 'german@example.com',
+location: "Fort Lauderdale",
+password: 'password',
+password_confirmation: 'password',
+admin: true,
+cohort_id: nil
+)
 20.times do |n|
 User.create!(
 fname: Faker::Name.first_name,
